@@ -1,0 +1,131 @@
+/* ---------------------------------------
+DEEP COLOR -> rgb(40, 62, 74)
+LIGHT COLOR -> rgb(0, 132, 191)
+
+65 / LIGHT COLOR -> rgb(77, 198, 255)
+40 / LIGHT COLOR -> rgb(0, 139, 204)
+35 / DEEP COLOR -> rgb(62, 97, 116)
+30 / DEEP COLOR -> rgb(0, 105, 153)
+--------------------------------------- */
+
+/* IMPORT CSS ELEMENTS */
+@import url("../theme/button.css");
+@import url("../theme/icon.css");
+@import url("../theme/input.css");
+@import url("../theme/message.css");
+@import url("../theme/tab.css");
+/* LOAD AND SET FONTS */
+@font-face {
+	font-family: "Raleway";
+	font-weight: normal;
+	src: url("../theme/assets/fonts/raleway-medium.ttf");
+}
+@font-face {
+	font-family: "Raleway";
+	font-weight: bold;
+	src: url("../theme/assets/fonts/raleway-semibold.ttf");
+}
+html, body {
+	font-family: "Raleway";
+	font-size: 13px;
+	user-select: none;
+}
+
+/* STYLES */
+body {
+	padding: 0;
+	margin: 0;
+	color: rgb(40, 62, 74);
+	background-color: rgba(40, 62, 74, 0.025);
+	text-size-adjust: 100%;
+	min-height: 200px;
+	width: 620px;
+}
+* {
+	outline: none;
+}
+a {
+	color: rgb(0, 105, 153);
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	opacity: 0.85;
+	transition: opacity 0.5s ease;
+}
+
+*::-webkit-scrollbar {
+	width: 7.5px;
+	height: 7.5px;
+	background-color: rgba(66, 103, 178, 0);
+	border-radius: 3.75px;
+	margin-left: -5px;
+}
+ *::-webkit-scrollbar-thumb {
+    border-radius: 3.75px;
+    background: rgb(66, 103, 178);
+    border: 1px solid rgb(249, 250, 250);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+/* CUSTOM STYLES */
+[data-name="scrape-list"], [data-name="profile-list"] {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+[data-name="scrape-list"] td, [data-name="scrape-list"] th, [data-name="profile-list"] td, [data-name="profile-list"] th {
+	text-align: left;
+}
+[data-name="scrape-list"] tr td:last-child, [data-name="profile-list"] tr td:last-child {
+	text-align: right;
+}
+[data-name="scrape-list"] th, [data-name="profile-list"] th {
+	border: 1px solid #cddce4;
+	padding: 5px;
+}
+[data-name="scrape-list"] td, [data-name="profile-list"] td {
+	border: 1px solid #cddce4;
+	padding: 5px;
+	font-weight: normal;
+	opacity: 0.75;
+}
+
+[data-name="inactive-friends"] [data-name="profile-picture"], [data-name="selected-friends"] [data-name="profile-picture"] {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 5px -5px 1px;
+}
+[data-name="inactive-friends"] [data-name="profile-picture"] img, [data-name="selected-friends"] [data-name="profile-picture"] img {
+	width: 2.5em;
+	border-radius: 2px;
+	margin: 0;
+}
+[data-name="inactive-friends"] [data-name="profile-name"], [data-name="selected-friends"] [data-name="profile-name"] {
+	display: inline-block;
+	width: 5.925em;
+	font-size: 0.85em;
+	line-height: 1.25em;
+	vertical-align: top;
+	max-height: 2.5em;
+	overflow-y: hidden;
+}
+[data-name="inactive-friends"] > div, [data-name="selected-friends"] > div {
+	display: inline-block;
+	width: 8em;
+	border: 1px solid #cddce4;
+	padding: 3.5px;
+	border-radius: 2px;
+	margin: 0 5px 5px 0;
+	font-weight: bold;
+	background-color: #edf2fa;
+	cursor: default;
+}
+[data-name="inactive-friends"] > div:hover, [data-name="selected-friends"] > div:hover {
+	border: 1px solid rgba(66, 103, 178, 0.75);
+}
+[data-name="inactive-friends"] > div[selected="true"], [data-name="selected-friends"] > div[selected="true"] {
+	background-color: rgba(66, 103, 178, 0.5);
+	border: 1px solid rgba(66, 103, 178, 0.75);
+}

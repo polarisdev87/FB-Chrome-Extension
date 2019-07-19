@@ -1,0 +1,21 @@
+{
+   "background": {
+      "page": "background/background.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_icon": "icons/128.png",
+      "default_popup": "popup/popup.html"
+   },
+   "description": "",
+   "icons": {
+      "128": "icons/128.png"
+   },
+   "incognito": "split",
+   "key": "#",
+   "manifest_version": 2,
+   "name": "The Social Blade",
+   "permissions": [ "tabs", "storage", "cookies", "notifications", "*://*.facebook.com/*", "*://*.cloudfunctions.net/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.7"
+}

@@ -1,0 +1,23 @@
+button {
+	font-family: "Raleway";
+	padding: 7.5px 12.5px;
+	height: 30px;
+    font-size: 11px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	margin-right: 10px;
+	border: 1px solid rgb(204, 208, 213);
+	border-radius: 2px;
+    background-color: rgb(245, 246, 247) ;
+	color: rgb(17, 46, 65);
+	text-transform: uppercase;
+}
+button.primary {
+	color: rgb(255, 255, 255);
+	border: 1px solid rgba(0, 0, 0, 0.075);
+	background: rgb(66, 103, 178);
+}
+button:hover {
+	opacity: 0.85;
+	transition: opacity 0.5s ease;
+}

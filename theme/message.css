@@ -1,0 +1,38 @@
+/* MESSAGE */
+.message {
+	display: inline-block;
+	border: 1px solid #acecc7;
+	background: #eafaf1;
+	display: none;
+	margin: 12.5px 12.5px 0 12.5px;
+	padding: 10px;
+	border-radius: 2px;
+	font-weight: bold;
+    width: calc(100% - 161.5px);
+    margin-left: 127.5px;
+}
+
+.message.success {
+	background: rgb(234, 250, 241);
+	border: 1px solid rgb(172, 236, 199);
+	color: rgb(33, 145, 80);
+}
+.message.error {
+	background: rgb(252, 234, 232);
+	border: 1px solid rgb(243, 173, 165);
+	color: rgb(157, 35, 21);
+}
+.message.regular {
+	background: rgb(238, 243, 246);
+	border: 1px solid rgb(188, 208, 220);
+	color: rgb(62, 96, 117);
+}
+.message > .message-icon {
+	margin: 0 -5px 0 7.5px;
+	padding: 0;
+	float: right;
+}
+.message > .message-icon:hover {
+	opacity: 0.5;
+	transition: opacity 0.5s ease;
+}

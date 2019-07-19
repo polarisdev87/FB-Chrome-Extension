@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../theme/styles.css">
+</head>
+
+<body>
+	<ul class="tab-navigation">
+		<li class="tab-link" target-name="home">Home</li>
+		<li class="tab-link" target-name="remove-friends">Inactive Friends</li>
+		<li class="tab-link" target-name="add-friends">Add Friends</li>
+		<li class="tab-link" target-name="messaging">Messaging</li>
+	</ul>
+	<div class="message success">
+		<span class="message-body"></span>
+		<span class="message-icon" ui-action="close-message"><i class="close icon"></i></span>
+	</div>
+	<div class="tab-contents">
+
+		<div class="tab-content" data-name="home">
+			<div class="sub-content" data-name="start-form">
+				<form form-name="scanData">
+					<label>Select posts to scan for finding inactive friends:</label><br />
+					<select size="6" style="overflow:hidden; height: auto;" name="selectedPosts">
+						<option value="7">Posts in last 7 days</option>
+						<option value="14">Posts in last 2 weeks</option>
+						<option value="30">Posts in last 1 month</option>
+						<option value="90">Posts in last 3 months</option>
+						<option value="180">Posts in last 6 months</option>
+						<option value="365">Posts in last 12 months</option>
+					</select><br />
+					<button type="submit" class="primary" data-action="start-scanning">Start Scanning</button><button type="button" class="Default" data-action="close-window">Close</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="tab-content" data-name="remove-friends">
+			<div class="sub-content">
+				<label>Inactive Friends (<span data-name="inactive-friends-count"></span>):</label>
+				<span data-action="select-all" style="float: right; cursor: pointer; color: rgb(66, 103, 178); margin-right: 12.5px;">[<span style="margin: 0 1px 0 1px;">Select All</span>]</span>
+				<div style="max-height: 232.5px; overflow-y: scroll; margin-bottom: 0.5em;">
+					<div data-name="inactive-friends"></div>
+				</div>
+				<label>Friends Selected for Removing:</label>
+				<span data-action="deselect-all" style="float: right; cursor: pointer; color: rgb(66, 103, 178); margin-right: 12.5px;">[<span style="margin: 0 1px 0 1px;">Deselect All</span>]</span>
+				<div style="max-height: 136px; overflow-y: scroll; margin-bottom: 1em;">
+					<div data-name="selected-friends"></div>
+				</div>
+				<button class="primary" data-action="remove-friends">Remove Friends</button><button class="Default" data-action="close-window">Close</button>
+			</div>
+		</div>
+
+		<div class="tab-content" data-name="add-friends">
+			<div class="sub-content" data-name="not-ready">
+				<span style="margin-bottom: 0.75em; display: inline-block;">Please open the like or reaction's list from any
+					post to add people as friend.</span><br />
+				</button><button class="Default" data-action="close-window">Close</button>
+			</div>
+			<div class="sub-content" data-name="ready">
+				<form form-name="addData">
+					<span>Total People Found: </span><input name="totalPeople" style="background: transparent; border: 0; width: auto; padding: 0; margin: 0; font-size: 1em;" disabled=""/><br />
+					<input type="hidden" name="postId"/>
+					<input type="hidden" name="reactionType"/>
+					<input type="hidden" name="profileList"/>
+					<label>Number of people to add as friend:</label><br />
+					<input type="number" name="addAmount"/><br />
+					<label>Target country:</label><br />
+					<select name="targetRegions">
+						<option value="All">All Countries</option>
+						<option value="USA, United States, United States of America, Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Guam, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Minor Outlying Islands, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Northern Mariana Islands, Ohio, Oklahoma, Oregon, Pennsylvania, Puerto Rico, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, U.S. Virgin Islands, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming, Canada, Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland, Northwest Territories, Nova Scotia, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Yukon, UK, United Kingdom, England, Avon, Bedfordshire, Berkshire, Buckinghamshire, Cambridgeshire, Cheshire, Cleveland, Cornwall, Cumbria, Derbyshire, Devon, Dorset, Durham, East Sussex, Essex, Gloucestershire, Hampshire, Herefordshire, Hertfordshire, Isle of Wight, Kent, Lancashire, Leicestershire, Lincolnshire, London, Merseyside, Middlesex, Norfolk, Northamptonshire, Northumberland, North Humberside, North Yorkshire, Nottinghamshire, Oxfordshire, Rutland, Shropshire, Somerset, South Humberside, South Yorkshire, Staffordshire, Suffolk, Surrey, Tyne and Wear, Warwickshire, West Midlands, West Sussex, West Yorkshire, Wiltshire, Worcestershire, Wales, Clwyd, Dyfed, Gwent, Gwynedd, Mid Glamorgan, Powys, South Glamorgan, West Glamorgan, Scotland, Aberdeenshire, Angus, Argyll, Ayrshire, Banffshire, Berwickshire, Bute, Caithness, Clackmannanshire, Dumfriesshire, Dunbartonshire, East Lothian, Fife, Inverness-shire, Kincardineshire, Kinross-shire, Kirkcudbrightshire, Lanarkshire, Midlothian, Moray, Nairnshire, Orkney, Peeblesshire, Perthshire, Renfrewshire, Ross-shire, Roxburghshire, Selkirkshire, Shetland, Stirlingshire, Sutherland, West Lothian, Wigtownshire, Northern Ireland, Antrim, Armagh, Down, Fermanagh, Londonderry, Tyrone, Australia, Australian Capital Territory, New South Wales, Northern Territory, Queensland, South Australia, Tasmania, Victoria, Western Australia, New Zealand, Northland, Thames Valley, Waikato, Bay of Plenty, Tongariro, East Cape, Hawkes Bay, Taranaki, Wanganui, Wairarapa, Manawatu, Horowhenua, Nelson Bays, Marlborough, Canterbury, West Coast, Aorangi, Coastal / North Otago, Clutha / Central Otago, Southland">USA, Canada, UK, Australia, New Zealand</option>
+						<option value="USA, United States, United States of America, Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Guam, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Minor Outlying Islands, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Northern Mariana Islands, Ohio, Oklahoma, Oregon, Pennsylvania, Puerto Rico, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, U.S. Virgin Islands, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming">USA</option>
+						<option value="Canada, Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland, Northwest Territories, Nova Scotia, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Yukon">Canada</option>
+						<option value="UK, United Kingdom, England, Avon, Bedfordshire, Berkshire, Buckinghamshire, Cambridgeshire, Cheshire, Cleveland, Cornwall, Cumbria, Derbyshire, Devon, Dorset, Durham, East Sussex, Essex, Gloucestershire, Hampshire, Herefordshire, Hertfordshire, Isle of Wight, Kent, Lancashire, Leicestershire, Lincolnshire, London, Merseyside, Middlesex, Norfolk, Northamptonshire, Northumberland, North Humberside, North Yorkshire, Nottinghamshire, Oxfordshire, Rutland, Shropshire, Somerset, South Humberside, South Yorkshire, Staffordshire, Suffolk, Surrey, Tyne and Wear, Warwickshire, West Midlands, West Sussex, West Yorkshire, Wiltshire, Worcestershire, Wales, Clwyd, Dyfed, Gwent, Gwynedd, Mid Glamorgan, Powys, South Glamorgan, West Glamorgan, Scotland, Aberdeenshire, Angus, Argyll, Ayrshire, Banffshire, Berwickshire, Bute, Caithness, Clackmannanshire, Dumfriesshire, Dunbartonshire, East Lothian, Fife, Inverness-shire, Kincardineshire, Kinross-shire, Kirkcudbrightshire, Lanarkshire, Midlothian, Moray, Nairnshire, Orkney, Peeblesshire, Perthshire, Renfrewshire, Ross-shire, Roxburghshire, Selkirkshire, Shetland, Stirlingshire, Sutherland, West Lothian, Wigtownshire, Northern Ireland, Antrim, Armagh, Down, Fermanagh, Londonderry, Tyrone">UK</option>
+						<option value="Australia, Australian Capital Territory, New South Wales, Northern Territory, Queensland, South Australia, Tasmania, Victoria, Western Australia">Australia</option>
+						<option value="New Zealand, Northland, Thames Valley, Waikato, Bay of Plenty, Tongariro, East Cape, Hawkes Bay, Taranaki, Wanganui, Wairarapa, Manawatu, Horowhenua, Nelson Bays, Marlborough, Canterbury, West Coast, Aorangi, Coastal / North Otago, Clutha / Central Otago, Southland">New Zealand</option>
+					</select><br />
+					<label>Average delay between friend requests (Seconds):</label><br />
+					<input type="number" name="averageDelay" value="20"/><br />
+					<label><input type="checkbox" name="mutualOnly"/> Only add mutual friends.</label><br />
+					<button class="primary" type="submit" data-action="add-friends">Add As Friend</button><button class="Default" data-action="close-window">Close</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="tab-content" data-name="messaging">
+			<div class="sub-content" data-name="">
+				<form form-name="messagingData">
+					<label style="margin-right: 1em;"><input name="selectedFriends" value="1" type="radio" checked=""/>Recently Added Friends</label>
+					<label><input name="selectedFriends" value="-1" type="radio"/>All Friends</label><br/>
+					<span data-name="scanningRangeSelector">
+						<label>Select friends to send message:</label><br />
+						<select name="scanningRange">
+							<option value="7">Added in last 7 days</option>
+							<option value="14">Added in last 2 weeks</option>
+							<option value="30">Added in last 1 month</option>
+							<option value="90">Added in last 3 months</option>
+						</select><br/>
+					</span>
+					<label>Message:</label><br />
+					<textarea style="resize: none; height: 15em;" name="messageData"></textarea>
+					<span data-name="avoidRangeSelector" style="display: none;">
+						<label>Don't send message if already sent a message:</label><br />
+						<select name="avoidRange">
+							<option value="0.5">In last 12 hours</option>
+							<option value="1">In last 24 hours</option>
+							<option value="3">In last 3 days</option>
+							<option value="7">In last 7 days</option>
+							<option value="14">In last 2 weeks</option>
+							<option value="30">In last 1 month</option>
+							<option value="90">In last 3 months</option>
+						</select><br/>
+					</span>
+					<label>Maximum number of friends to send message:</label><br />
+					<input type="number" name="messagingLimit" value="100"/><br />
+					<label>Average delay between messages (Seconds):</label><br />
+					<input type="number" name="averageDelay" value="20"/>
+					<button type="submit" class="primary">Start Messaging</button><button type="button" class="Default" data-action="close-window">Close</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="tab-content active" data-name="loading-anim">
+			<div class="sub-content active" style="height: 265px;">
+				<div style="background: rgb(249, 250, 250); text-align: center; padding: 100px 0 110px 0; position: fixed; top: 0; left: 0; width: 100%; height: 100%;">
+					<svg width="75px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+						<circle cx="50" cy="50" fill="none" stroke="rgb(66, 103, 178)" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(180 50 50)">
+							<animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+						</circle>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-content" data-name="authorization">
+			<div class="sub-content" style="height: 265px;">
+				<div>
+					<form form-name="userAuthorization">
+						<span style="font-weight: bold; word-spacing: 0.45em; letter-spacing: 0.105em;" class="input-label-top">Email Address:</span><br />
+						<input type="email" name="userEmail"/>
+						<button style="font-weight: bold; word-spacing: 0.45em; letter-spacing: 0.105em;" type="submit" class="primary">Activate Product</button><button style="font-weight: bold; word-spacing: 0.45em; letter-spacing: 0.105em;" type="button" class="Default" data-action="close-window">Close</button>
+						<br/><a style="text-transform: uppercase; display: block; margin-top: 0.45em; color: rgb(66, 103, 178); font-size: 11.5px; font-weight: bold; word-spacing: 0.45em; letter-spacing: 0.105em;" href="https://mckayr468.clickfunnels.com/order-form?cf_uvid=c2a81bd46e8160b3062bdbb419d455c6" target="_blank">Not licensed? Click here to purchase this product.</a>
+						<img src="../icons/logo.png" style="display: block; margin: auto; text-align: center; width: 75%; margin-bottom: 2em;"/>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="../theme/tab.js"></script>
+	<script type="text/javascript" src="../theme/message.js"></script>
+	<script type="text/javascript" src="../theme/others.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
+</body>
+
+</html>
